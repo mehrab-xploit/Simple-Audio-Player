@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEHRAB - Music Player</title>
+    <script src="./fontawesome-free-5.0.9/svg-with-js/js/fontawesome-all.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="main_div">
+
+        <div class="music_box">
+
+            <h2 id="titel">arabic nasheed</h2>
+
+            <h3 id="artist">Aseer Ahsan</h3>
+
+            <div class="img_box">
+                <img src="pic/pic  (4).jpg" alt="">
+            </div>
+            <br>
+            <br>
+            <br>
+            <audio autoplay controls  style="width: 200;height: 100;">
+                <source src="arabic nasheed/Aseer Ahsan (Vocals-Only Version).mp3" type="audio/mp3"/>
+        
+            </audio> 
+            <!-- <audio src="arabic nasheed/Aseer Ahsan (Vocals-Only Version).mp3"></audio> -->
+
+
+            <!-- <div class="music_controls">
+
+                <i class="fas fa-backward" id="prev" title="Previous"></i>
+
+                <i class="fas fa-play main_button" id="play" title="Play"></i>
+
+                <i class="fas fa-forward" id="next" title="Next"></i>
+            </div> -->
+        </div>
+    </div>
+
+
+    <script>
+
+
+        const music = document.querySelector('audio')
+        const img = document.querySelector('img')
+        const play = document.getElementById('play')
+
+
+        let isPlaying = false;
+
+        console.log("JS loaded");
+
+        const playMusic = () => {
+            isPlaying = true;
+            music.play();
+            play.classList.replace('fa-play', 'fa-pause');
+            img.classList.add('anime');
+
+console.log("in play mode");
+
+
+        };
+
+
+       const pauseMusic = () => {
+            isPlaying = false;
+            music.pause();
+            play.classList.replace('fa-pause','fa-play');
+            img.classList.remove('anime');
+
+            console.log("in pause mode");
+
+        };
+
+
+
+        play.addEventListener('click', () => {
+            if (isPlaying) {
+                pauseMusic();
+            } else {
+                playMusic();
+            }
+        });
+
+
+
+    </script>
+</body>
+
+</html>
